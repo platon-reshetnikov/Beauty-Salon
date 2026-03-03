@@ -18,30 +18,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const time = document.getElementById('time').value;
 
         const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-        
+
         const conflictingBooking = bookings.find(booking => booking.date === date && booking.time === time && booking.master === master);
 
         if (conflictingBooking) {
-            alert('Цей тимчасовий слот уже зайнятий. Будь ласка, виберіть інший час.');
+            alert('This time slot is already booked. Please choose a different time.');
             return;
         }
 
-        const booking = { 
-            clientName, 
-            clientPhone, 
-            master, 
-            service, 
-            price: service.split(' - ')[1], 
-            date, 
-            time 
+        const booking = {
+            clientName,
+            clientPhone,
+            master,
+            service,
+            price: service.split(' - ')[1],
+            date,
+            time
         };
 
         bookings.push(booking);
         localStorage.setItem('bookings', JSON.stringify(bookings));
 
-        alert('Бронювання успішно створено!'); // Оповещение об успешной записи
-
-        // Переход на index.html
+        alert('Booking successfully created!');
         window.location.href = 'index.html';
     });
 
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedMaster = masterSelect.value;
 
         if (!selectedDate || !selectedMaster) {
-            timeSelect.innerHTML = '<option value="" disabled selected>Выберите время</option>';
+            timeSelect.innerHTML = '<option value="" disabled selected>Select time</option>';
             return;
         }
 
@@ -62,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const allTimes = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'];
         const availableTimes = allTimes.filter(time => !bookedTimes.includes(time));
 
-        timeSelect.innerHTML = '<option value="" disabled selected>Выберите время</option>';
+        timeSelect.innerHTML = '<option value="" disabled selected>Select time</option>';
         availableTimes.forEach(time => {
             const option = document.createElement('option');
             option.value = time;

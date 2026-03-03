@@ -1,60 +1,60 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Запис клієнта</title>
+    <title>Book an Appointment</title>
     <link rel="stylesheet" href="css/Client.css">
 </head>
 <body>
-    <h1>Запис на прийом до майстра</h1>
+    <h1>Book an Appointment</h1>
     <form id="bookingForm">
-        <label for="master">Виберіть майстра:</label>
+        <label for="master">Select a master:</label>
         <select id="master" required>
-            <option value="" disabled selected>Виберіть майстра</option>
-            <option value="Олександр (чоловічий майстер)">Олександр (чоловічий майстер)</option>
-            <option value="Денис (чоловічий майстер)">Денис (чоловічий майстер)</option>
-            <option value="Вікторія (жіночий майстер)">Вікторія (жіночий майстер)</option>
-            <option value="Аліса (жіночий майстер)">Аліса (жіночий майстер)</option>
-            <option value="Крис (жіночий майстер)">Крис (жіночий майстер)</option>
+            <option value="" disabled selected>Select a master</option>
+            <option value="Oleksandr (male master)">Oleksandr (male master)</option>
+            <option value="Denys (male master)">Denys (male master)</option>
+            <option value="Viktoria (female master)">Viktoria (female master)</option>
+            <option value="Alisa (female master)">Alisa (female master)</option>
+            <option value="Krys (female master)">Krys (female master)</option>
         </select>
 
-        <label for="service">Виберіть послугу:</label>
+        <label for="service">Select a service:</label>
         <select id="service" required>
-            <option value="Стрижка - 500 гр">Стрижка - 500 гр.</option>
-            <option value="Стрижки бороди, вусів - 600 гр">Стрижки бороди, вусів - 600 гр.</option>
-            <option value="Вечірні та весільні зачіски - 1800 гр">Вечірні та весільні зачіски - 1800 гр.</option>
-            <option value="Покраска волосся - 400 гр">Покраска волосся - 400 гр.</option>
-            <option value="Завивка волосся - 400 гр">Завивка волосся - 400 гр.</option>
-            <option value="Відновлення волосся - 1000 гр">Відновлення волосся - 1000 гр.</option>
-            <option value="Педикюр: класичний, апаратний, SPA педикюр - 700/9000/1100 гр">Педикюр: класичний, апаратний, SPA педикюр - 700/9000/1100 гр.</option>
-            <option value="SPA догляд для рук та ніг - 1500 гр">SPA догляд для рук та ніг - 1500 гр.</option>
-            <option value="Покриття нігтів гель-лаком Shellac CND, Kodi - 1200 гр">Покриття нігтів гель-лаком Shellac CND, Kodi - 1200 гр.</option>
-            <option value="Нарощування та зміцнення натуральних нігтів гелем - 1600 гр">Нарощування та зміцнення натуральних нігтів гелем - 1600 гр.</option>
-            <option value="Макіяж - 300-700 гр">Макіяж - 300-700 гр.</option>
-            <option value="Візаж - 250 гр">Візаж - 250 гр.</option>
+            <option value="Haircut - 500 UAH">Haircut - 500 UAH</option>
+            <option value="Beard & moustache trim - 600 UAH">Beard & moustache trim - 600 UAH</option>
+            <option value="Evening & bridal hairstyles - 1800 UAH">Evening & bridal hairstyles - 1800 UAH</option>
+            <option value="Hair colouring - 400 UAH">Hair colouring - 400 UAH</option>
+            <option value="Hair perm - 400 UAH">Hair perm - 400 UAH</option>
+            <option value="Hair restoration - 1000 UAH">Hair restoration - 1000 UAH</option>
+            <option value="Pedicure: classic / hardware / SPA - 700/900/1100 UAH">Pedicure: classic / hardware / SPA - 700/900/1100 UAH</option>
+            <option value="SPA hand & foot care - 1500 UAH">SPA hand & foot care - 1500 UAH</option>
+            <option value="Gel-polish coating Shellac CND, Kodi - 1200 UAH">Gel-polish coating Shellac CND, Kodi - 1200 UAH</option>
+            <option value="Nail extension & strengthening with gel - 1600 UAH">Nail extension & strengthening with gel - 1600 UAH</option>
+            <option value="Makeup - 300-700 UAH">Makeup - 300-700 UAH</option>
+            <option value="Visage - 250 UAH">Visage - 250 UAH</option>
         </select>
 
-        <label for="date">Виберіть дату:</label>
+        <label for="date">Select a date:</label>
         <input type="date" id="date" required>
 
-        <label for="time">Виберіть час:</label>
+        <label for="time">Select a time:</label>
         <select id="time" required>
-            <option value="" disabled selected>Виберіть час:</option>
+            <option value="" disabled selected>Select time</option>
         </select>
 
-        <label for="clientName">Ім'я клієнта:</label>
+        <label for="clientName">Client name:</label>
         <input type="text" id="clientName" required>
 
-        <label for="clientPhone">Телефон клієнта:</label>
+        <label for="clientPhone">Client phone:</label>
         <input type="text" id="clientPhone" required>
 
-        <button type="submit">Записатись</button>
+        <button type="submit">Book</button>
     </form>
 
     <div id="confirmation" style="display:none;">
-        <h2>Запис успішно створено!</h2>
-        <p>Ваше бронювання підтверджено.</p>
+        <h2>Appointment successfully created!</h2>
+        <p>Your booking is confirmed.</p>
     </div>
 
     <script src="js/client.js"></script>

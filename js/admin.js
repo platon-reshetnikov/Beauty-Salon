@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const currentUser = localStorage.getItem('currentUser');
     if (!currentUser) {
-        alert('Ви не авторизовані!');
+        alert('You are not authorised!');
         window.location.href = 'login.html';
     } else {
         displayBookings();
@@ -16,18 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
 function displayBookings() {
     const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
     const bookingList = document.getElementById('bookingList');
-    bookingList.innerHTML = ''; // Clear the list before repopulating
+    bookingList.innerHTML = '';
 
     bookings.forEach((booking, index) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `Клієнт: ${booking.clientName}, Телефон: ${booking.clientPhone}, Майстер: ${booking.master}, Послуга: ${booking.service},гр., Дата: ${booking.date}, Час: ${booking.time}`;
+        listItem.textContent = `Client: ${booking.clientName}, Phone: ${booking.clientPhone}, Master: ${booking.master}, Service: ${booking.service}, Date: ${booking.date}, Time: ${booking.time}`;
 
         const editButton = document.createElement('button');
-        editButton.textContent = 'Редагувати';
+        editButton.textContent = 'Edit';
         editButton.addEventListener('click', () => editBooking(index));
 
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Видалити';
+        deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', () => deleteBooking(index));
 
         listItem.appendChild(editButton);
@@ -68,7 +68,7 @@ function updateBooking() {
     const conflictingBooking = bookings.find(booking => booking.date === newDate && booking.time === newTime && booking.master === newMaster);
 
     if (conflictingBooking && conflictingBooking !== bookings[index]) {
-        alert('Цей тимчасовий слот уже зайнятий. Будь ласка, виберіть інший час.');
+        alert('This time slot is already booked. Please choose a different time.');
         return;
     }
 
@@ -77,7 +77,7 @@ function updateBooking() {
         clientPhone: document.getElementById('editClientPhone').value,
         master: newMaster,
         service: newService,
-        price: newService.split(' - ')[1], // Assuming service option text includes price in "service - price" format
+        price: newService.split(' - ')[1],
         date: newDate,
         time: newTime
     };

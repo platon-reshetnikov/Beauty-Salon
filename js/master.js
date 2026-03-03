@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const currentUser = localStorage.getItem('currentUser');
     if (!currentUser) {
-        alert('Ви не авторизовані!');
+        alert('You are not authorised!');
         window.location.href = 'login.html';
     } else {
         displayBookings();
@@ -14,7 +14,7 @@ function displayBookings() {
 
     bookings.forEach(booking => {
         const listItem = document.createElement('li');
-        listItem.textContent = `Клієнт: ${booking.clientName}, Телефон: ${booking.clientPhone}, Майстер: ${booking.master}, Послуга: ${booking.service}, Дата: ${booking.date}, Час: ${booking.time}`;
+        listItem.textContent = `Client: ${booking.clientName}, Phone: ${booking.clientPhone}, Master: ${booking.master}, Service: ${booking.service}, Date: ${booking.date}, Time: ${booking.time}`;
         bookingList.appendChild(listItem);
     });
 }

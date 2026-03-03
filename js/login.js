@@ -12,7 +12,7 @@ function registerUser() {
     };
 
     localStorage.setItem(user.username, JSON.stringify(user));
-    alert('Користувач успішно зареєстровано!');
+    alert('User successfully registered!');
 }
 
 function loginUser() {
@@ -23,15 +23,15 @@ function loginUser() {
 
     if (user && user.password === password) {
         localStorage.setItem('currentUser', username);
-        alert('Вход успешен!');
-        if (user.role === 'Адміністратор') {
+        alert('Login successful!');
+        if (user.role === 'Administrator') {
             window.location.href = 'admin.html';
-        } else if (user.role === 'Майстер') {
+        } else if (user.role === 'Master') {
             window.location.href = 'master.html';
-        } else if (user.role === 'Клієнт') {
+        } else if (user.role === 'Client') {
             window.location.href = 'client.html';
         }
     } else {
-        alert('Невірний логін або пароль!');
+        alert('Invalid username or password!');
     }
 }

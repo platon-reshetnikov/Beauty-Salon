@@ -1,5 +1,4 @@
 function registerUser() {
-    // Получаем значения полей
     const lastName = document.getElementById('lastName').value.trim();
     const firstName = document.getElementById('firstName').value.trim();
     const middleName = document.getElementById('middleName').value.trim();
@@ -10,72 +9,60 @@ function registerUser() {
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    // Проверка заполненности всех полей
     if (!lastName || !firstName || !middleName || !address || !phone || !dob || !role || !username || !password) {
-        alert('Будь ласка, заповніть усі поля!');
+        alert('Please fill in all fields!');
         return;
     }
 
-    // Валидация имени и фамилии: только буквы
     const nameRegex = /^[a-zA-Zа-яА-Я]+$/;
     if (!nameRegex.test(lastName) || !nameRegex.test(firstName) || !nameRegex.test(middleName)) {
-        alert('Ім\'я, прізвище та по батькові повинні містити лише літери.');
+        alert('First name, last name, and middle name must contain letters only.');
         return;
     }
 
-    // Валидация телефона: только цифры, длина 10 символов
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
-        alert('Номер телефону повинен містити рівно 10 цифр.');
+        alert('Phone number must contain exactly 10 digits.');
         return;
     }
 
-    // Валидация даты рождения: корректный формат
     if (!isValidDate(dob)) {
-        alert('Дата народження має бути у форматі YYYY-MM-DD.');
+        alert('Date of birth must be in YYYY-MM-DD format.');
         return;
     }
 
-    // Валидация логина: минимум 4 символа, без пробелов
     if (username.length < 4 || username.includes(' ')) {
-        alert('Логін повинен містити принаймні 4 символи і не містити пробілів.');
+        alert('Username must be at least 4 characters long and must not contain spaces.');
         return;
     }
 
-    // Валидация пароля: минимум 6 символов
     if (password.length < 6) {
-        alert('Пароль повинен містити принаймні 6 символів.');
+        alert('Password must be at least 6 characters long.');
         return;
     }
 
-    // Создаём объект пользователя
     const user = {
-        lastName: lastName,
-        firstName: firstName,
-        middleName: middleName,
-        address: address,
-        phone: phone,
-        dob: dob,
-        role: role,
-        username: username,
-        password: password
+        lastName,
+        firstName,
+        middleName,
+        address,
+        phone,
+        dob,
+        role,
+        username,
+        password
     };
 
-    // Сохраняем пользователя в localStorage
     localStorage.setItem(user.username, JSON.stringify(user));
 
-    alert('Користувач успішно зареєстровано!');
+    alert('User successfully registered!');
     window.location.href = 'login.html';
 }
 
-// Функция проверки даты на валидность
 function isValidDate(dateString) {
-    const regex = /^\d{4}-\d{2}-\d{2}$/; // Проверка формата YYYY-MM-DD
+    const regex = /^\d{4}-\d{2}-\d{2}$/;
     if (!regex.test(dateString)) return false;
 
     const date = new Date(dateString);
     return date instanceof Date && !isNaN(date);
 }
-
-
-
